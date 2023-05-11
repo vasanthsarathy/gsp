@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "gsp"
+version = "0.1.0"
+description = "Code for work in grounded semantic parsing."
+authors = ["Vasanth Sarathy <vsarathy@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.scripts]
+gsp = "gsp.cli:main"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+click = "^8.1.3"
+dash = "^2.9.3"
+dash-bootstrap-components = "^1.4.1"
+pandas = "^2.0.1"
+jupyter = "^1.0.0"
+ipykernel = "^6.23.0"
+lmql = "^0.0.6.3"
+langchain = "^0.0.166"
+llama-index = "^0.6.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
