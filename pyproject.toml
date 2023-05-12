@@ -20,6 +20,7 @@ ipykernel = "^6.23.0"
 lmql = "^0.0.6.3"
 langchain = "^0.0.166"
 llama-index = "^0.6.5"
+gradio = "^3.30.0"
 
 
 [build-system]
