@@ -1,0 +1,42 @@
+setup poses
+-
+Define new screw type M3
+150 millinewton meters
+300 millinewton meters
+6500 degrees
+pose screw feeder
+-
+I will teach you how to screw a screw into a hole
+first verify that you can see the hole
+then mount the screw
+then align with the hole
+Then run the screwdriver job of the screw
+That is how you screw a screw into a hole
+-
+define new item NFSV
+job circuit breaker face
+-
+I will teach you how to assemble a NFSV
+first go to pose conveyor
+then verify that you can see the NFSV
+Then get the NFSV on the work area
+then search for 2 m3 holes
+screw a M3 screw into the left M3 hole
+then go to pose work area
+screw a M3 screw into the right M3 hole
+then get the NFSV on the conveyor
+then advance the conveyor belt
+that is how you assemble a NFSV
+-
+assemble a NFSV
+-
+define new item NVFAU
+job n v face
+-
+assemble an NVFAU is like assemble an NFSV
+replace search for 2 m3 holes with search for 2 deep m3 holes
+replace screw an M3 screw into the left M3 hole with screw an M3 screw into the bottom deep M3 hole
+replace screw an M3 screw into the right M3 hole with screw an M3 screw into the top deep M3 hole
+that is all
+-
+assemble an NVFAU
