@@ -1,0 +1,910 @@
+{name: askAbout, 
+roles:[?actor,?otherActor,?query,?returnQuery]
+description: 
+}
+{name: positReference, 
+roles:[?actor,?properties]
+description: 
+}
+{name: retractBeliefs, 
+roles:[?actor,?beliefs]
+description: 
+}
+{name: reconnect, 
+roles:[?actor]
+description: 
+}
+{name: moveToCameraHeight, 
+roles:[?actor]
+description: moves up by a camera z height as defined by an inline constant
+}
+{name: getActionsBySignature, 
+roles:[?actor,?actionSignature]
+description: 
+}
+{name: moveAwayFromJointLimit, 
+roles:[?actor]
+description: 
+}
+{name: goToPose, 
+roles:[?actor,?pose]
+description: goes to pose without adjustment
+}
+{name: screwIn, 
+roles:[?actor,?var_1,?var_0]
+description: 
+}
+{name: moveConveyorBackward, 
+roles:[?actor]
+description: Moves the conveyor belt backward
+}
+{name: injectDictionaryEntry, 
+roles:[?actor,?morpheme,?type,?semantics,?cognitiveStatus]
+description: 
+}
+{name: listenForUtterance, 
+roles:[?actor,?nlp]
+description: 
+}
+{name: moveInPlane, 
+roles:[?actor,?x,?y]
+description: 
+}
+{name: getActionsByEffect, 
+roles:[?actor,?effect]
+description: 
+}
+{name: openaiChatCompletion, 
+roles:[?actor,?prompt]
+description: 
+}
+{name: assertBeliefs, 
+roles:[?actor,?beliefs,?memoryLevel]
+description: 
+}
+{name: handleITK, 
+roles:[?actor,?speaker,?addressee,?query,?semanticType]
+description: reply to itk semantics
+}
+{name: defineItem, 
+roles:[?actor,?item]
+description: defines new item, and asks for relevant parameters
+}
+{name: recordCameraPoseAsk, 
+roles:[?actor,?poseName]
+description: records current pose and asks for an off set
+}
+{name: putDown, 
+roles:[?actor]
+description: drops an object held by the robot grippers
+}
+{name: queryBelief, 
+roles:[?actor,?query]
+description: 
+}
+{name: retractBeliefs, 
+roles:[?actor,?beliefs,?memoryLevel]
+description: 
+}
+{name: supersedeCurrentGoal, 
+roles:[?actor,?newGoal]
+description: stops current goal, executes ?newGoal, replans to rexecute the goal that was stopped
+}
+{name: askQuestion, 
+roles:[?actor,?speaker,?toSay,?responseForm]
+description: 
+}
+{name: getCameraData, 
+roles:[?actor,?jobName]
+description: 
+}
+{name: getContextDescription, 
+roles:[?actor,?location]
+description: get description for step of (specified by location) currently executing goal 
+}
+{name: modifyAssemble, 
+roles:[?actor,?newScriptID,?oldScriptID]
+description: creates a new assembly script based on an existing one
+}
+{name: openaiCompletion, 
+roles:[?actor,?modelSym,?prompt]
+description: 
+}
+{name: alignWith, 
+roles:[?actor,?holeRef]
+description: aligns above a screw hole by reference id
+}
+{name: goToPoseLong, 
+roles:[?actor,?pose]
+description: goes to pose without adjustment the long way around
+}
+{name: addDetectionType, 
+roles:[?actor,?descriptor,?jobName]
+description: 
+}
+{name: getObservers, 
+roles:[?actor,?obs]
+description: 
+}
+{name: configureScrewdriverParam, 
+roles:[?actor,?screwType,?val]
+description: 
+}
+{name: setLLMModel, 
+roles:[?actor,?model]
+description: 
+}
+{name: perceiveEntity, 
+roles:[?actor,?refId]
+description: Looks for an entity at the current location
+}
+{name: modifyAction, 
+roles:[?actor,?action,?modification,?location]
+description: 
+}
+{name: createCogRefWithProps, 
+roles:[?actor,?j,?additionalProperties]
+description: 
+}
+{name: assertBeliefs, 
+roles:[?actor,?beliefs]
+description: 
+}
+{name: moveToObjectHeight, 
+roles:[?actor]
+description: moves down by a camera z height as defined by an inline constant
+}
+{name: retractRule, 
+roles:[?actor,?head,?body,?memoryLevel]
+description: 
+}
+{name: openaiChatCompletion, 
+roles:[?actor,?model,?chat]
+description: 
+}
+{name: delay, 
+roles:[?actor,?seconds]
+description: 
+}
+{name: cancelGoal, 
+roles:[?actor,?goal]
+description: 
+}
+{name: setLLMService, 
+roles:[?actor,?service]
+description: 
+}
+{name: tell, 
+roles:[?actor,?goal]
+description: 
+}
+{name: getCurrentPose, 
+roles:[?actor]
+description: 
+}
+{name: getMelfaHeader, 
+roles:[?actor]
+description: 
+}
+{name: chatCompletion, 
+roles:[?actor,?messages]
+description: 
+}
+{name: goToPoseLong, 
+roles:[?actor,?pose,?cameraHeight]
+description: goes to pose with adjustment to the given cameraHeight the long way around
+}
+{name: moveXRelative, 
+roles:[?actor,?dist]
+description: 
+}
+{name: moveConveyorForward, 
+roles:[?actor]
+description: Moves the conveyor belt forward
+}
+{name: submitNLGRequest, 
+roles:[?actor,?speaker,?listener,?semantics,?bindings]
+description: 
+}
+{name: getActionStatus, 
+roles:[?actor,?gid]
+description: 
+}
+{name: handleRecovery, 
+roles:[?actor,?speaker,?state,?recovery,?semanticType]
+description: reply to recovery semantics
+}
+{name: suspendGoal, 
+roles:[?actor,?goalPredicate]
+description: 
+}
+{name: retractBelief, 
+roles:[?actor,?belief,?memoryLevel]
+description: 
+}
+{name: openaiCompletion, 
+roles:[?actor,?requestBody]
+description: 
+}
+{name: getCognexReferenceForID, 
+roles:[?actor,?refId]
+description: 
+}
+{name: bindResultsRecursive, 
+roles:[?actor,?job,?cameraResults,?i]
+description: Recursively iterates through the given ?cameraResults and binds them to references
+}
+{name: getConstantMappings, 
+roles:[?actor]
+description: 
+}
+{name: translateLastGoal, 
+roles:[?actor]
+description: 
+}
+{name: queryBelief, 
+roles:[?actor,?queries,?memoryLevel]
+description: 
+}
+{name: modifyAssemble, 
+roles:[?actor,?newScriptID,?oldScriptID,?modification,?location]
+description: creates a new assembly script based on an existing one
+}
+{name: querySupport, 
+roles:[?actor,?query,?memoryLevel]
+description: 
+}
+{name: observeDescriptor, 
+roles:[?actor,?descriptor,?numResults]
+description: runs a job for the given ?descriptor and saves the results in the cognex consultant
+}
+{name: getTCPForEE, 
+roles:[?actor,?eeType]
+description: 
+}
+{name: generateResponse, 
+roles:[?actor,?listener,?semantics,?semanticType]
+description: given a predicate, calls NLG pipeline to get its text from and then submits a say text goal with it
+}
+{name: sayText, 
+roles:[?actor,?text]
+description: 
+}
+{name: queryBelief, 
+roles:[?actor,?queries]
+description: 
+}
+{name: getContextFromId, 
+roles:[?actor,?id]
+description: 
+}
+{name: getActDesc, 
+roles:[?actor,?goalPred]
+description: get step by step of action description and assert it to belief 
+}
+{name: retractBelief, 
+roles:[?actor,?belief]
+description: 
+}
+{name: assemblenfsv, 
+roles:[?actor,?var_0]
+description: 
+}
+{name: getCurrentContextCount, 
+roles:[?actor]
+description: 
+}
+{name: assertBelief, 
+roles:[?actor,?belief]
+description: 
+}
+{name: chatCompletion, 
+roles:[?actor,?chat]
+description: 
+}
+{name: assertRule, 
+roles:[?actor,?head,?body]
+description: 
+}
+{name: querySupportWithExplanation, 
+roles:[?actor,?query]
+description: 
+}
+{name: handleWantBel, 
+roles:[?actor,?speaker,?addressee,?fact,?semanticType]
+description: reply to wantBel semantics
+}
+{name: perceiveEntityFromSymbol, 
+roles:[?actor,?refId]
+description: runs a job for a given pre-existing ?refId and binds the relevant result to that reference
+}
+{name: askQuestion, 
+roles:[?actor,?speaker,?toSay,?responseForm]
+description: 
+}
+{name: queryLastSource, 
+roles:[?actor,?query]
+description: 
+}
+{name: isQuestionResponse, 
+roles:[?actor,?speaker,?listener,?semantics]
+description: 
+}
+{name: querySupportWithExplanation, 
+roles:[?actor,?query,?memoryLevel]
+description: 
+}
+{name: getGoal, 
+roles:[?actor,?goalPredicate]
+description: 
+}
+{name: getTime, 
+roles:[?actor]
+description: get the system time and assert it to belief
+}
+{name: getDescriptorForID, 
+roles:[?actor,?refId]
+description: 
+}
+{name: getModelType, 
+roles:[?actor]
+description: 
+}
+{name: recordPose, 
+roles:[?actor,?poseName,?surfaceHeight]
+description: 
+}
+{name: configureScrewdriverProgram, 
+roles:[?actor,?screwType,?torqueTarget,?torqueMax,?angleMax]
+description: 
+}
+{name: createBecausePredicate, 
+roles:[?actor,?state,?listener,?justification]
+description: 
+}
+{name: setState, 
+roles:[?actor,?predicate]
+description: 
+}
+{name: supersedeAndUndo, 
+roles:[?actor,?newGoal]
+description: stops current goal, executes ?newGoal, executes plan to 'undo' the goal that was stopped
+}
+{name: screwScrew, 
+roles:[?actor,?screwType]
+description: screws in a single hole identified by the cognex using the kolver screwdriver
+}
+{name: getScrewdriverProgramIdFromSymbol, 
+roles:[?actor,?s]
+description: 
+}
+{name: believeRule, 
+roles:[?actor,?speaker,?head,?body,?semanticType,?responseSemantics]
+description: believe that ?rule is true from agent ?speaker
+}
+{name: setupPoses, 
+roles:[?actor]
+description: 
+}
+{name: putAwayGripper, 
+roles:[?actor,?gripperType]
+description: 
+}
+{name: getGoalStatus, 
+roles:[?actor,?gid]
+description: 
+}
+{name: getGripDropoff, 
+roles:[?actor,?s]
+description: 
+}
+{name: submitTTSRequest, 
+roles:[?actor,?speaker,?listener,?utterance]
+description: 
+}
+{name: rotateToEE, 
+roles:[?actor,?gripperType]
+description: changes TCP of robot to refer to a new EE attached to the cuff at a different offset
+}
+{name: getDictionaryEntries, 
+roles:[?actor]
+description: 
+}
+{name: openaiCompletion, 
+roles:[?actor,?modelSym,?prompt]
+description: 
+}
+{name: submitGoal, 
+roles:[?actor,?g]
+description: 
+}
+{name: handleWant, 
+roles:[?actor,?speaker,?addressee,?state,?semanticType]
+description: reply to want semantics
+}
+{name: pickUp, 
+roles:[?actor,?objectRef]
+description: finds and moves above a flange of the given modelType
+}
+{name: getContextForGoal, 
+roles:[?actor,?g]
+description: 
+}
+{name: rotateForToolRack, 
+roles:[?actor]
+description: 
+}
+{name: assertRule, 
+roles:[?actor,?head,?body,?memoryLevel]
+description: 
+}
+{name: conveyorReverse, 
+roles:[?actor]
+description: 
+}
+{name: getCognexJobForDescriptor, 
+roles:[?actor,?descriptor]
+description: 
+}
+{name: dip, 
+roles:[?actor,?dist]
+description: moves down and up by the distance given
+}
+{name: removeActionsWithSignature, 
+roles:[?actor,?actionSignature]
+description: 
+}
+{name: doCognexOffset, 
+roles:[?actor]
+description: 
+}
+{name: getStatusFromRef, 
+roles:[?actor,?refId]
+description: 
+}
+{name: getRefForJob, 
+roles:[?actor,?descriptor]
+description: runs a job for the given ?descriptor and saves and returns the first result
+}
+{name: observeFluent, 
+roles:[?actor,?state]
+description: 
+}
+{name: bindCognexResult, 
+roles:[?actor,?ref,?result,?indexIntoCognexResult]
+description: 
+}
+{name: defineScrewType, 
+roles:[?actor,?screwType]
+description: defines new type of screw for screw, and asks for relevant parameters
+}
+{name: mountSingleScrew, 
+roles:[?actor]
+description: finds and mounts a single screw to the kolver screwdriver
+}
+{name: updateParam, 
+roles:[?actor,?paramName,?newValue]
+description: updates value of ?param to ?newValue
+}
+{name: completion, 
+roles:[?actor,?model,?prompt]
+description: 
+}
+{name: getAllActions, 
+roles:[?actor]
+description: 
+}
+{name: alternateEE, 
+roles:[?actor,?newTCP]
+description: 
+}
+{name: goToPose, 
+roles:[?actor,?goal]
+description: 
+}
+{name: openaiChatCompletion, 
+roles:[?actor,?requestBody]
+description: 
+}
+{name: getCognexJobForCognexReference, 
+roles:[?actor,?ref]
+description: 
+}
+{name: startLearningAssembleScript, 
+roles:[?actor,?modelName]
+description: assembles model for ?modelID from belief
+}
+{name: moveAbove, 
+roles:[?actor,?s]
+description: 
+}
+{name: waitForAck, 
+roles:[?actor]
+description: 
+}
+{name: querySupport, 
+roles:[?actor,?query]
+description: 
+}
+{name: chatCompletion, 
+roles:[?actor,?model,?prompt]
+description: 
+}
+{name: assembleVision, 
+roles:[?actor]
+description: classifies model in front of itself and calls relevant assemble script
+}
+{name: resumeGoal, 
+roles:[?actor,?goalPredicate]
+description: 
+}
+{name: assemblenvfau, 
+roles:[?actor,?var_0]
+description: 
+}
+{name: getActionLearningStatus, 
+roles:[?actor,?predicate]
+description: 
+}
+{name: getPoseFromSymbol, 
+roles:[?actor,?poseName]
+description: 
+}
+{name: moveAndOrientToCognexTarget, 
+roles:[?actor,?refID]
+description: 
+}
+{name: forgetThat, 
+roles:[?actor,?requester,?predicate]
+description: 
+}
+{name: openaiChatCompletion, 
+roles:[?actor,?chat]
+description: 
+}
+{name: isRepeatedPredicate, 
+roles:[?actor,?word,?listener,?state,?recency]
+description: 
+}
+{name: resumeGoal, 
+roles:[?actor,?goalID]
+description: 
+}
+{name: queryCount, 
+roles:[?actor,?query]
+description: 
+}
+{name: closeGripper, 
+roles:[?actor]
+description: 
+}
+{name: chatCompletion, 
+roles:[?actor,?prompt]
+description: 
+}
+{name: grab, 
+roles:[?actor,?physobj,?pose]
+description: ?actor grabs ?physobj
+}
+{name: undoThenDo, 
+roles:[?actor,?newGoal]
+description: stops current goal, executes ?newGoal, executes plan to 'undo' the goal that was stopped
+}
+{name: putdown, 
+roles:[?actor,?physobj,?pose]
+description: ?actor releases ?physobj
+}
+{name: adjustPoseToCameraHeight, 
+roles:[?actor,?goal,?cameraHeight]
+description: 
+}
+{name: openaiChatCompletion, 
+roles:[?actor,?model,?messages]
+description: 
+}
+{name: forgetHow, 
+roles:[?actor,?requester,?actionSignature]
+description: 
+}
+{name: cancelGoal, 
+roles:[?actor,?goalPredicate]
+description: 
+}
+{name: gotoCamerapose, 
+roles:[?actor,?pose]
+description: goes to pose at camera height
+}
+{name: handleSemantics, 
+roles:[?actor,?speaker,?addressee,?listeners,?semantics,?suppSemantics,?semanticType]
+description: Handle semantics (direct or indirect)
+}
+{name: switchProgram, 
+roles:[?actor,?id]
+description: 
+}
+{name: believeFact, 
+roles:[?actor,?speaker,?addressee,?fact,?semanticType,?responseSemantics]
+description: believe that ?fact is true from agent ?speaker
+}
+{name: getEmptyProps, 
+roles:[?actor]
+description: 
+}
+{name: queryRecency, 
+roles:[?actor,?query]
+description: 
+}
+{name: suspendGoal, 
+roles:[?actor,?goalID]
+description: 
+}
+{name: actionExists, 
+roles:[?actor,?goal]
+description: 
+}
+{name: queryLastTime, 
+roles:[?actor,?query]
+description: 
+}
+{name: cancelGoal, 
+roles:[?actor,?goalID]
+description: 
+}
+{name: modifyAssemble, 
+roles:[?actor,?scriptID,?modification,?location]
+description: creates a new assembly script based on an existing one
+}
+{name: openaiCompletion, 
+roles:[?actor,?prompt]
+description: 
+}
+{name: getCurrentGoals, 
+roles:[?actor]
+description: 
+}
+{name: moveToCognexTarget, 
+roles:[?actor,?refID]
+description: 
+}
+{name: undoCognexOffset, 
+roles:[?actor]
+description: 
+}
+{name: observeProperties, 
+roles:[?actor,?query]
+description: 
+}
+{name: submitGoal, 
+roles:[?actor,?g]
+description: 
+}
+{name: mountScrew, 
+roles:[?actor,?screwType]
+description: goes to the source of the given screw type and mounts one to the screwdriver
+}
+{name: addNotifications, 
+roles:[?actor,?queryTerm,?callbackTerm]
+description: 
+}
+{name: removeEntry, 
+roles:[?actor,?name,?grammar,?meaning,?cognitiveStatus]
+description: 
+}
+{name: conveyorForward, 
+roles:[?actor]
+description: 
+}
+{name: isDiarcAgent, 
+roles:[?actor,?agentRef]
+description: 
+}
+{name: ejectEE, 
+roles:[?actor]
+description: 
+}
+{name: acknowledge, 
+roles:[?actor]
+description: 
+}
+{name: bindToSurface, 
+roles:[?actor,?goal,?surfaceHeight]
+description: 
+}
+{name: openaiChatCompletion, 
+roles:[?actor,?messages]
+description: 
+}
+{name: getGripper, 
+roles:[?actor,?gripperType]
+description: 
+}
+{name: assertProperties, 
+roles:[?actor,?ref,?properties]
+description: 
+}
+{name: openaiChatCompletion, 
+roles:[?actor,?model,?prompt]
+description: 
+}
+{name: handleError, 
+roles:[?actor,?speaker,?addressee,?errorSemantics,?semanticType]
+description: Handle error semantics
+}
+{name: joinOnGoal, 
+roles:[?actor,?gid,?millis]
+description: 
+}
+{name: getOn, 
+roles:[?actor,?object,?destination]
+description: 
+}
+{name: estimatePerformanceMeasures, 
+roles:[?actor,?goalPred,?temporal,?assessmentModification]
+description: 
+}
+{name: chatCompletion, 
+roles:[?actor,?model,?chat]
+description: 
+}
+{name: runScrewdriverProgram, 
+roles:[?actor,?programID]
+description: 
+}
+{name: completion, 
+roles:[?actor,?prompt]
+description: 
+}
+{name: assemble, 
+roles:[?actor,?modelID]
+description: assembles model for ?modelID from belief
+}
+{name: unstickScrewdriver, 
+roles:[?actor,?returnTo]
+description: unsticks the screwdriver tip from a screwed in screw
+}
+{name: achieveState, 
+roles:[?actor,?speaker,?state,?tentativeAcceptSemantics,?acceptSemantics,?semanticType]
+description: try to achieve desired state
+}
+{name: assertBelief, 
+roles:[?actor,?belief,?memoryLevel]
+description: 
+}
+{name: moveZRelative, 
+roles:[?actor,?dist]
+description: 
+}
+{name: textsynthCompletion, 
+roles:[?actor,?prompt]
+description: 
+}
+{name: handleAck, 
+roles:[?actor,?speaker,?addressee,?semanticType]
+description: Handle ack semantics
+}
+{name: translateGoal, 
+roles:[?actor,?goal]
+description: 
+}
+{name: endLearningAssembleScript, 
+roles:[?actor,?modelName]
+description: ends learning of assemble?modelName()
+}
+{name: getPromptText, 
+roles:[?actor]
+description: 
+}
+{name: resetScrewdriver, 
+roles:[?actor]
+description: 
+}
+{name: translate, 
+roles:[?actor,?contextID]
+description: 
+}
+{name: goToPose, 
+roles:[?actor,?pose,?cameraHeight]
+description: goes to pose with adjustment to the given cameraHeight
+}
+{name: textsynthCompletion, 
+roles:[?actor,?model,?prompt]
+description: 
+}
+{name: getMatchingResult, 
+roles:[?actor,?toReBind,?results]
+description: 
+}
+{name: answerQuestion, 
+roles:[?actor,?speaker,?listener,?answerSemantics]
+description: 
+}
+{name: getSuccessFromRef, 
+roles:[?actor,?refId]
+description: 
+}
+{name: getGoalFailConditions, 
+roles:[?actor,?gid]
+description: 
+}
+{name: handleUtterance, 
+roles:[?actor,?speaker,?addressee,?listeners,?semantics,?indirectSemantics,?suppSemantics]
+description: Handle NLPacket form a response
+}
+{name: generateResponse, 
+roles:[?actor,?listener,?semantics,?bindings,?semanticType]
+description: given a predicate, calls NLG pipeline to get its text from and then calls sayText action
+}
+{name: runScrewdriverJob, 
+roles:[?actor,?screwType]
+description: screws in a screw once aligned
+}
+{name: joinOnGoal, 
+roles:[?actor,?gid]
+description: 
+}
+{name: openaiCompletion, 
+roles:[?actor,?prompt]
+description: 
+}
+{name: completion, 
+roles:[?actor,?model,?prompt]
+description: 
+}
+{name: init, 
+roles:[?actor]
+description: workaround for not being able to retract facts from belief init files
+}
+{name: acceptEE, 
+roles:[?actor]
+description: 
+}
+{name: updateActionLearning, 
+roles:[?actor,?newAction,?status]
+description: 
+}
+{name: textsynthCompletion, 
+roles:[?actor,?prompt]
+description: 
+}
+{name: gotocamerapose, 
+roles:[?actor,?pose1,?pose2]
+description: moves to ?pose1, from ?pose2
+}
+{name: goToPoseLong, 
+roles:[?actor,?goal]
+description: 
+}
+{name: getActorFromQuery, 
+roles:[?actor,?query]
+description: 
+}
+{name: handleGreeting, 
+roles:[?actor,?speaker,?addressee,?greeting,?semanticType]
+description: Handle greeting semantics
+}
+{name: retractRule, 
+roles:[?actor,?head,?body]
+description: 
+}
+{name: completion, 
+roles:[?actor,?prompt]
+description: 
+}
+{name: moveToCognexTarget, 
+roles:[?actor,?results,?jobIndex]
+description: 
+}
+{name: openGripper, 
+roles:[?actor]
+description: 
+}
+{name: getCurrGoals, 
+roles:[?actor]
+description: get list of current goals and assert it to belief
+}
+{name: checkCapableOf, 
+roles:[?actor,?goal]
+description: checks if post condition is capable of bing reached by ?actor
+}
+
+

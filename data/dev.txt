@@ -1,0 +1,19 @@
+that screw belongs to Evan
+pose screw feeder
+first verify that you can see the hole
+then mount the screw
+then align with the hole
+Then run the screwdriver job of the screw
+first go to pose conveyor
+then verify that you can see the NFSV
+Then get the NFSV on the work area
+then search for 2 m3 holes
+screw a M3 screw into the left M3 hole
+then go to pose work area
+screw a M3 screw into the right M3 hole
+then get the NFSV on the conveyor
+then advance the conveyor belt
+assemble a NFSV
+replace search for 2 m3 holes with search for 2 deep m3 holes
+replace screw an M3 screw into the left M3 hole with screw an M3 screw into the bottom deep M3 hole
+replace screw an M3 screw into the right M3 hole with screw an M3 screw into the top deep M3 hole

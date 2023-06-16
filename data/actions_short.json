@@ -1,0 +1,295 @@
+[
+  {
+    "name": "setupPoses",
+    "roles": [
+      {
+        "VAR0": "agent"
+      }
+    ]
+  },
+  {
+    "name": "defineScrewType",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "m3"
+      }
+    ]
+  },
+  {
+    "name": "updateActionLearning",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "screwIn"
+      },
+      {
+        "VAR2": "start"
+      }
+    ]
+  },
+  {
+    "name": "perceiveEntity",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "mountScrew",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "alignWith",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "runScrewdriverJob",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "updateActionLearning",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "screwIn"
+      },
+      {
+        "VAR2": "end"
+      }
+    ]
+  },
+  {
+    "name": "defineItem",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "startLearningAssembleScript",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "gotoCamerapose",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "pose"
+      }
+    ]
+  },
+  {
+    "name": "perceiveEntity",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "getOn",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      },
+      {
+        "VAR2": "pose"
+      }
+    ]
+  },
+  {
+    "name": "observeDescriptor",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "m3"
+      },
+      {
+        "VAR2": "2"
+      }
+    ]
+  },
+  {
+    "name": "screwIn",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "m3"
+      },
+      {
+        "VAR2": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "gotoCamerapose",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "pose"
+      }
+    ]
+  },
+  {
+    "name": "screwIn",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "m3"
+      },
+      {
+        "VAR2": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "getOn",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      },
+      {
+        "VAR2": "pose"
+      }
+    ]
+  },
+  {
+    "name": "moveConveyorForward",
+    "roles": [
+      {
+        "VAR0": "agent"
+      }
+    ]
+  },
+  {
+    "name": "endLearningAssembleScript",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "assemble",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "assemblenfsv",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "modifyAssemble",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "assemble"
+      },
+      {
+        "VAR2": "assemble"
+      }
+    ]
+  },
+  {
+    "name": "assemble",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      }
+    ]
+  },
+  {
+    "name": "assemblenvfau",
+    "roles": [
+      {
+        "VAR0": "agent"
+      },
+      {
+        "VAR1": "physobj"
+      }
+    ]
+  }
+]
