@@ -14,7 +14,7 @@
         "VAR0": "agent"
       },
       {
-        "VAR1": "m3"
+        "VAR1": "physobj"
       }
     ]
   },
@@ -155,7 +155,7 @@
         "VAR0": "agent"
       },
       {
-        "VAR1": "m3"
+        "VAR1": "physobj"
       },
       {
         "VAR2": "2"
@@ -194,7 +194,7 @@
         "VAR0": "agent"
       },
       {
-        "VAR1": "m3"
+        "VAR1": "physobj"
       },
       {
         "VAR2": "physobj"

@@ -3600,6 +3600,26 @@ files = [
 ]
 
 [[package]]
+name = "rich"
+version = "13.4.2"
+description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
+category = "main"
+optional = false
+python-versions = ">=3.7.0"
+files = [
+    {file = "rich-13.4.2-py3-none-any.whl", hash = "sha256:8f87bc7ee54675732fa66a05ebfe489e27264caeeff3728c945d25971b6485ec"},
+    {file = "rich-13.4.2.tar.gz", hash = "sha256:d653d6bccede5844304c605d5aac802c7cf9621efd700b46c7ec2b51ea914898"},
+]
+
+[package.dependencies]
+ipywidgets = {version = ">=7.5.1,<9", optional = true, markers = "extra == \"jupyter\""}
+markdown-it-py = ">=2.2.0"
+pygments = ">=2.13.0,<3.0.0"
+
+[package.extras]
+jupyter = ["ipywidgets (>=7.5.1,<9)"]
+
+[[package]]
 name = "semantic-version"
 version = "2.10.0"
 description = "A library implementing the 'SemVer' scheme."
@@ -4404,4 +4424,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "2cfee27b579807687a62f8f756aeae7b2905c89cbb7ae843191e009f5d5b438d"
+content-hash = "cd1754d3a3ffbe6052d6aa583a91e1b58f675f3fa47e51080b0e3c4751679ae9"
