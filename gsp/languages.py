@@ -1,0 +1,16 @@
+languages = [
+    ('ar', 'Arabic'),
+    ('de', 'German'),
+    ('nl', 'Dutch; Flemish'),
+    ('ko', 'Korean'),
+    ('fa', 'Persian'),
+    ('fi', 'Finnish'),
+    ('fr', 'French'),
+    ('gl', 'Galician'),
+    ('gu', 'Gujarati'),
+    ('he', 'Hebrew'),
+    ('hi', 'Hindi'),
+    ('hu', 'Hungarian'),
+    ('ta', 'Tamil'),
+    ('tr', 'Turkish'),
+    ]
