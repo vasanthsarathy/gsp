@@ -23,6 +23,7 @@ The command `$ gsp prepare` prepares the data for finetuning
 
 
 
+
 ## Finetuning config file:
 
 [Config File](https://gist.github.com/vasanthsarathy/b6aedbcb15459e38a60a20c04a610bc5)
@@ -39,8 +40,27 @@ The command `$ gsp prepare` prepares the data for finetuning
     - huggingface hub token
     - wandb token 
     - link to merge-script to merge adapter with larger model 
-5. Create a runpod instance with axolotl on it. 
-6. Run training
+5. Create a runpod instance with axolotl on it. (i like L40)
+6. initialize and install stuff on runpod instance 
+
+pull the installation script
+`$ wget https://raw.githubusercontent.com/vasanthsarathy/gsp/main/setup_axolotl.sh`
+
+change permissions
+`$ chmod +x setup_axolotl.sh`
+
+run installation (will ask for a huggingface token and wandb token)
+`$ ./setup_axolotl.sh`
+
+Get the config file (see here for an example of Falcon-context)
+`$ cd axolotl`
+`$ wget https://raw.githubusercontent.com/vasanthsarathy/gsp/main/gsp/config/model_config/parser-info_structure-30k-context-falcon-7b.yaml`
+`$ accelerate launch scripts/finetune.py <....yaml>`
+
+That's it .
+
+
+6. Run training 
 7. should automatically push the adapter to the hub
 8. Merge adapter with model. 
 
