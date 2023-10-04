@@ -69,3 +69,4 @@ special_tokens:
   bos_token: "<s>"
   eos_token: "</s>"
   unk_token: "<unk>"
+  pad_token: "</s>"
