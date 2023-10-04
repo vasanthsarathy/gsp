@@ -1,7 +1,7 @@
-base_model: winglian/Llama-2-3b-hf
-base_model_config: winglian/Llama-2-3b-hf
-model_type: AutoModelForCausalLM
-tokenizer_type: AutoTokenizer
+base_model: openlm-research/open_llama_3b_v2 
+base_model_config: openlm-research/open_llama_3b_v2
+model_type: LlamaForCausalLM
+tokenizer_type: LlamaTokenizer
 is_llama_derived_model: true
 hub_model_id: parser-info_structure-30k-no-context-llama2-3b
 
