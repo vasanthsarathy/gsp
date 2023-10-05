@@ -132,6 +132,9 @@ def merge(ctx, **kwargs):
 @click.option('--context/--no-context', '-c',
               default=False,
               help="If set, the dataset will include the action/detection repertoire within the input and instructions of the prompt.")
+@click.option('--simple/--no-simple', '-s',
+              default=False,
+              help="If set, the dataset will include as output not a json structure, but a simple english translation, which is basically the basic_utterance.")
 @add_options(shared_options)
 @click.pass_context
 def prepare(ctx, **kwargs):

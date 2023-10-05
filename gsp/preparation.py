@@ -28,6 +28,8 @@ def prepare(ctx):
             # if the data has not been stylized then use old keyvalues
             item = {'utterance': obj['utteranceText'], 'goal_semantics': obj['desiredSemantics']}
 
+        item['base_utterance'] = obj['base_utterance']
+
         item['json_semantics'] = deconstruct(item['goal_semantics'])
         item['intent'] = item['json_semantics']['intent']
         item['central_proposition'] = item['json_semantics']['central_proposition']
@@ -73,35 +75,64 @@ def prepare(ctx):
                 properties.append(property['name'])
             item['properties'] = properties
 
-        if ctx['context']:
-            # if the context flag is set. 
-            item['prompt_template'] = prompt_template_deconstructed_goal_semantics_with_context
-            item['text'] = item['prompt_template'].format(instruction_with_context=instruction_with_context,
-                                                          example_with_context=example_with_context,
-                                                          utterance=item['utterance'],
-                                                          actions=item['actions'],
-                                                          properties=item['properties'],
-                                                          output=item['json_semantics'])
 
-            item['input'] = item['utterance'] + "\n\nAvailable actions:\n" + str(item['actions']) + "\n\nAvailable detectors:\n" + str(item['properties']) 
-            item['output'] = item['json_semantics']
-            item['instruction'] = instruction_with_context + "\n\n" + example_with_context.format(actions=item['actions'],
-                                                                                                  properties=item['properties'])
+        # Now we can do the input, output, instruction 
+        if ctx['simple']:
+            if ctx['context']:
+                # if the context flag is set. 
+                item['prompt_template'] = prompt_template_simple_with_context
+                item['text'] = item['prompt_template'].format(instruction_simple_with_context=instruction_simple_with_context,
+                                                            example_simple_with_context=example_simple_with_context,
+                                                            utterance=item['utterance'],
+                                                            actions=item['actions'],
+                                                            properties=item['properties'],
+                                                            output=item['base_utterance'])
 
-        else:
-            item['prompt_template'] = prompt_template_deconstructed_goal_semantics
-            item['text'] = item['prompt_template'].format(instruction=instruction,
-                                                        example=example,
-                                                        input=item['utterance'], 
-                                                        output=item['json_semantics'])
-            item['input'] = item['utterance']
-            item['output'] = item['json_semantics']
-            item['instruction'] = instruction+"\n\n"+example
+                item['input'] = item['utterance'] + "\n\nAvailable actions:\n" + str(item['actions']) + "\n\nAvailable detectors:\n" + str(item['properties']) 
+                item['output'] = item['base_utterance']
+                item['instruction'] = instruction_simple_with_context + "\n\n" + example_simple_with_context.format(actions=item['actions'],
+                                                                                                    properties=item['properties'])
+
+            else:
+                item['prompt_template'] = prompt_template_simple
+                item['text'] = item['prompt_template'].format(instruction_simple=instruction_simple,
+                                                            example_simple=example_simple,
+                                                            input=item['utterance'], 
+                                                            output=item['base_utterance'])
+                item['input'] = item['utterance']
+                item['output'] = item['base_utterance']
+                item['instruction'] = instruction_simple+"\n\n"+example_simple
+
+        else: #generates json info structure
+            if ctx['context']:
+                # if the context flag is set. 
+                item['prompt_template'] = prompt_template_deconstructed_goal_semantics_with_context
+                item['text'] = item['prompt_template'].format(instruction_with_context=instruction_with_context,
+                                                            example_with_context=example_with_context,
+                                                            utterance=item['utterance'],
+                                                            actions=item['actions'],
+                                                            properties=item['properties'],
+                                                            output=item['json_semantics'])
+
+                item['input'] = item['utterance'] + "\n\nAvailable actions:\n" + str(item['actions']) + "\n\nAvailable detectors:\n" + str(item['properties']) 
+                item['output'] = item['json_semantics']
+                item['instruction'] = instruction_with_context + "\n\n" + example_with_context.format(actions=item['actions'],
+                                                                                                    properties=item['properties'])
+
+            else:
+                item['prompt_template'] = prompt_template_deconstructed_goal_semantics
+                item['text'] = item['prompt_template'].format(instruction=instruction,
+                                                            example=example,
+                                                            input=item['utterance'], 
+                                                            output=item['json_semantics'])
+                item['input'] = item['utterance']
+                item['output'] = item['json_semantics']
+                item['instruction'] = instruction+"\n\n"+example
 
         items.append(item)
         
     file_stem = Path(ctx['input']).stem
-    output_filepath = f"gsp/results/{file_stem}_finetuning_context-{ctx['context']}_{ctx['purpose']}.csv"
+    output_filepath = f"gsp/results/{file_stem}_finetuning_context-{ctx['context']}_simple-{ctx['simple']}_{ctx['purpose']}.csv"
 
     df = pd.DataFrame(items)
     df_pruned = df.drop_duplicates(subset=['utterance'], keep='first')
