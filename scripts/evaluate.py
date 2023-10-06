@@ -73,8 +73,9 @@ def main(args):
             item['predicted'] = output
             item['model'] = peft_model_id
             item['base_model'] = base_model_id
-            print("\nEvaluating output")
-            item['evaluation'] = evaluate(item['predicted'], item['output'])
+            if "par" in args.type.lower():
+                print("\nEvaluating output")
+                item['evaluation'] = evaluate(item['predicted'], item['output'])
             predictions.append(item)
 
         # Save results to file 
