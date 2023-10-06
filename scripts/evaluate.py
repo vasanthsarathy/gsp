@@ -58,7 +58,7 @@ def main(args):
     print(f"\tLoaded models: {model_names}\ndataset: {dataset_name}")
 
     # Running Inference
-    print(">> RUNNING INFERENCE")
+    print("\n>> RUNNING INFERENCE")
     for peft_model_id, base_model_id in model_names:
         print(f"\n>> Loading models for:\nPEFT: {peft_model_id}")
         predictions = []
@@ -73,7 +73,7 @@ def main(args):
             item['predicted'] = output
             item['model'] = peft_model_id
             item['base_model'] = base_model_id
-            print("\t Evaluating output")
+            print("\nEvaluating output")
             item['evaluation'] = evaluate(item['predicted'], item['output'])
             predictions.append(item)
 
@@ -119,13 +119,13 @@ def evaluate(predicted, truth):
         # Validate json 
         predicted_json = {}
         try:
-            predicted_json = ast.literal_eval(predicted_json_str)
+            predicted_json = ast.literal_eval(predicted)
             item['valid_json'] = True
             item['prediction'] = predicted_json
         except:
             item['valid_json'] = False
             print("Not a valid json. Will try to fix it.")
-    
+
         # try to fix the json with gpt
         if not item['valid_json']:
             # try to fix it.
@@ -244,6 +244,7 @@ def is_matched(predicted, truth):
 ### UTILITIES ####
 
 def fix_json(json_str):
+    print(">> Calling OPENAI for help")
     llm = ChatOpenAI(model_name="gpt-4", temperature=0.0)
     template = """
         Fix the input json string to produce an output that has a valid json format. Only change things like the parenthesis, commas etc.
