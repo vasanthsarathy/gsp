@@ -78,12 +78,12 @@ def main(args):
                 item['evaluation'] = evaluate(item['predicted'], item['output'])
             predictions.append(item)
 
-        # Save results to file 
-        print(f"Model ({peft_model_id}) evaluation completed")
-        filename = f"evaluation/{peft_model_id}_evaluation.json"
-        with open(filename, "w") as f:
+            # Save results to file 
+            print(f"Model ({peft_model_id}) evaluation completed")
+            filename = f"evaluation/{peft_model_id}_evaluation.json"
+            with open(filename, "w") as f:
             json.dump(predictions, f)
-        print(f"Results saved in {filename}")
+            print(f"Results saved in {filename}")
 
 def load_peft_model(peft_model_id, base_model_id):
   # Load the PEFT adapter into a model
@@ -145,7 +145,6 @@ def evaluate(predicted, truth):
 
     print("\t>> Checking Intent")
     # check intent
-    print(f"DEBUG: item: {item}")
     if item['prediction']['intent'] == item['truth']['intent']:
         item['intent_correct'] = True
     else:
@@ -169,8 +168,23 @@ def evaluate(predicted, truth):
     # Evaluate accuracy of spc
     item['spc_accuracy'] = {}
     spc_intersection = set(spc_name_prediction).intersection(set(spc_name_truth))
-    item['spc_accuracy']['precision'] = len(spc_intersection)/len(spc_name_prediction)
-    item['spc_accuracy']['recall'] = len(spc_intersection)/len(spc_name_truth)
+    if len(spc_name_prediction) == 0:
+        
+    if len(spc_name_truth) == 0:
+        if len(spc_name_prediction) == 0:
+            item['spc_accuracy']['recall'] = 1
+            item['spc_accuracy']['precision'] = 1
+        else:
+            item['spc_accuracy']['recall'] = 0
+            item['spc_accuracy']['precision'] = len(spc_intersection)/len(spc_name_prediction)
+    else:
+        if len(spc_name_prediction) == 0:
+            item['spc_accuracy']['precision'] = 0
+            item['spc_accuracy']['recall'] = len(spc_intersection)/len(spc_name_truth)
+        else:
+            item['spc_accuracy']['precision'] = len(spc_intersection)/len(spc_name_prediction)
+            item['spc_accuracy']['recall'] = len(spc_intersection)/len(spc_name_truth)
+
 
     # check for variable assignment and mapping. 
     if is_isomorphic(item['prediction'],item['truth']):
