@@ -9,3 +9,4 @@ pip install openai
 pip install networkx
 pip install matplotlib
 pip install sentencepiece
+mkdir evaluation
