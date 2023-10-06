@@ -4,7 +4,7 @@ import sys
 import argparse
 from datasets import load_dataset, load_from_disk
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from tqdm.notebook import tqdm
+from tqdm import tqdm
 from langchain.prompts import PromptTemplate
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import LLMChain
