@@ -74,16 +74,17 @@ def main(args):
             item['model'] = peft_model_id
             item['base_model'] = base_model_id
             if "par" in args.type.lower():
-                print("\nEvaluating output")
+                print("\n>>Evaluating output")
                 item['evaluation'] = evaluate(item['predicted'], item['output'])
             predictions.append(item)
 
             # Save results to file 
-            print(f"Model ({peft_model_id}) evaluation completed")
             filename = f"evaluation/{peft_model_id}_evaluation.json"
             with open(filename, "w") as f:
-            json.dump(predictions, f)
-            print(f"Results saved in {filename}")
+                json.dump(predictions, f)
+            print(f"saved item to file {filename}")
+
+        print(f"Model ({peft_model_id}) evaluation completed")
 
 def load_peft_model(peft_model_id, base_model_id):
   # Load the PEFT adapter into a model
