@@ -37,7 +37,7 @@ TRANSLATION_CONTEXT_DATA = "vsarathy/nl-robotics-translation-simple_english-12k-
 def main(args):
     # Load dataset
     print("\n>> LOADING DATASET")
-    if args.context:
+    if not args.context:
         if "par" in args.type.lower():
             model_names = PARSERS
             dataset_name = PARSING_DATA
@@ -258,9 +258,9 @@ def pred_args(pred):
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--context', type=bool, default=False)
-    parser.add_argument('-t', '--type', type=str, default = "parser", required=True)
-    parser.add_argument('-v', '--verbose', type=bool, default=False)
+    parser.add_argument('--type', type=str, default = "parser", required=True)
+    parser.add_argument("--verbose", action="store_true", help="increase output verbosity") 
+    parser.add_argument("--context", action="store_true", help="if set, chooses context") 
     args = parser.parse_args()
     main(args)
 
