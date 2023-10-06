@@ -169,8 +169,6 @@ def evaluate(predicted, truth):
     # Evaluate accuracy of spc
     item['spc_accuracy'] = {}
     spc_intersection = set(spc_name_prediction).intersection(set(spc_name_truth))
-    if len(spc_name_prediction) == 0:
-        
     if len(spc_name_truth) == 0:
         if len(spc_name_prediction) == 0:
             item['spc_accuracy']['recall'] = 1
