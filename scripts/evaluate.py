@@ -107,6 +107,7 @@ def evaluate(predicted, truth):
     input: json of the ground truth
     """
     item = {}
+    item['truth'] = truth
     if isinstance(truth,str):
         try:
             item['truth'] = ast.literal_eval(truth)
@@ -114,7 +115,6 @@ def evaluate(predicted, truth):
             print("Unable to parse the truth, which is weird.")
             return item
 
-    item['truth'] = truth
     if isinstance(predicted, str):
         # Validate json 
         predicted_json = {}
