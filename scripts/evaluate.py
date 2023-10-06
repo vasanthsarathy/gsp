@@ -151,14 +151,14 @@ def evaluate(predicted, truth):
         item['intent_correct'] = False
 
     # check cpc name
-    if  is_same_pred_name(item['prediction']['central_proposition'], truth['central_proposition']):
+    if  is_same_pred_name(item['prediction']['central_proposition'], item['truth']['central_proposition']):
         item['cpc_name_correct'] = True
     else:
         item['cpc_name_correct'] = False
 
     # check if correct number of sups
     spc_name_prediction = [pred_name(i) for i in item['prediction']['supplemental_semantics']]
-    spc_name_truth = [pred_name(i) for i in truth['supplemental_semantics']]
+    spc_name_truth = [pred_name(i) for i in item['truth']['supplemental_semantics']]
 
     if len(spc_name_prediction) == len(spc_name_truth):
         item['spc_length_correct'] = True
@@ -172,12 +172,12 @@ def evaluate(predicted, truth):
     item['spc_accuracy']['recall'] = len(spc_intersection)/len(spc_name_truth)
 
     # check for variable assignment and mapping. 
-    if is_isomorphic(item['prediction'],truth):
+    if is_isomorphic(item['prediction'],item['truth']):
         item['is_isomorphic'] = True
     else:
         item['is_isomorphic'] = False
 
-    if is_matched(item['prediction'], truth):
+    if is_matched(item['prediction'], item['truth']):
         item['is_matched'] = True
     else:
         item['is_matched'] = False
