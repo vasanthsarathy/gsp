@@ -80,7 +80,7 @@ def main(args):
             predictions.append(item)
 
             # Save results to file 
-            path = Path("peft_model_id")
+            path = Path(peft_model_id)
             filename = f"evaluation/{path.stem}_evaluation.json"
             with open(filename, "w") as f:
                 json.dump(predictions, f)
