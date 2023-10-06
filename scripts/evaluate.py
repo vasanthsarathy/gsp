@@ -79,7 +79,7 @@ def main(args):
 
         # Save results to file 
         print(f"Model ({peft_model_id}) evaluation completed")
-        filename = f"{peft_model_id}_evaluation.json"
+        filename = f"evaluation/{peft_model_id}_evaluation.json"
         with open(filename, "w") as f:
             json.dump(predictions, f)
         print(f"Results saved in {filename}")
