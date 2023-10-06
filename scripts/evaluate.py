@@ -13,6 +13,9 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import networkx.algorithms.isomorphism as iso
 import ast
+from transformers import logging
+
+logging.set_verbosity_error()
 
 # Various models that I have trained (peft_model_id, base_model)
 PARSERS = [("vsarathy/parser-info_structure-30k-no-context-llama2-7b", "codellama/CodeLlama-7b-hf"),
@@ -104,6 +107,13 @@ def evaluate(predicted, truth):
     input: json of the ground truth
     """
     item = {}
+    if isinstance(truth,str):
+        try:
+            item['truth'] = ast.literal_eval(truth)
+        except e:
+            print("Unable to parse the truth, which is weird.")
+            return item
+
     item['truth'] = truth
     if isinstance(predicted, str):
         # Validate json 
@@ -114,7 +124,7 @@ def evaluate(predicted, truth):
             item['prediction'] = predicted_json
         except:
             item['valid_json'] = False
-            pass
+            print("Not a valid json. Will try to fix it.")
     
         # try to fix the json with gpt
         if not item['valid_json']:
@@ -124,6 +134,7 @@ def evaluate(predicted, truth):
             try: 
                 predicted_json = ast.literal_eval(new_json_str)
                 item['prediction'] = predicted_json
+                print("Successfully fixed the json.")
             except e:
                 print("Unable to generate a valid dictionary.")
                 return item
@@ -133,7 +144,8 @@ def evaluate(predicted, truth):
 
     print("\t>> Checking Intent")
     # check intent
-    if item['prediction']['intent'] == truth['intent']:
+    print(f"DEBUG: item: {item}")
+    if item['prediction']['intent'] == item['truth']['intent']:
         item['intent_correct'] = True
     else:
         item['intent_correct'] = False
