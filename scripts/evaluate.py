@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import networkx.algorithms.isomorphism as iso
 import ast
 from transformers import logging
+from pathlib import Path
 
 logging.set_verbosity_error()
 
@@ -79,7 +80,8 @@ def main(args):
             predictions.append(item)
 
             # Save results to file 
-            filename = f"evaluation/{peft_model_id}_evaluation.json"
+            path = Path("peft_model_id")
+            filename = f"evaluation/{path.stem}_evaluation.json"
             with open(filename, "w") as f:
                 json.dump(predictions, f)
             print(f"saved item to file {filename}")
