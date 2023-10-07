@@ -148,55 +148,89 @@ def evaluate(predicted, truth):
 
     print("\t>> Checking Intent")
     # check intent
-    if item['prediction']['intent'] == item['truth']['intent']:
-        item['intent_correct'] = True
-    else:
+    try: 
+        if item['prediction']['intent'] == item['truth']['intent']:
+            item['intent_correct'] = True
+        else:
+            item['intent_correct'] = False
+    except e:
+        print("FAILED: Checking intent.")
+        print("Exception: ",e)
         item['intent_correct'] = False
+        print("Item: \n",item,"\n\n")
 
     # check cpc name
-    if  is_same_pred_name(item['prediction']['central_proposition'], item['truth']['central_proposition']):
-        item['cpc_name_correct'] = True
-    else:
+    try:
+        if  is_same_pred_name(item['prediction']['central_proposition'], item['truth']['central_proposition']):
+            item['cpc_name_correct'] = True
+        else:
+            item['cpc_name_correct'] = False
+    except e:
+        print("FAILED: Checking CPC name")
+        print("Exception: ",e)
         item['cpc_name_correct'] = False
+        print("Item: \n",item,"\n\n")
 
     # check if correct number of sups
-    spc_name_prediction = [pred_name(i) for i in item['prediction']['supplemental_semantics']]
-    spc_name_truth = [pred_name(i) for i in item['truth']['supplemental_semantics']]
 
-    if len(spc_name_prediction) == len(spc_name_truth):
-        item['spc_length_correct'] = True
-    else:
+    try:
+        spc_name_prediction = [pred_name(i) for i in item['prediction']['supplemental_semantics']]
+        spc_name_truth = [pred_name(i) for i in item['truth']['supplemental_semantics']]
+
+        if len(spc_name_prediction) == len(spc_name_truth):
+            item['spc_length_correct'] = True
+        else:
+            item['spc_length_correct'] = False
+    except e:
+        print("FAILED: Checking SPC counting")
+        print("Exception: ",e)
         item['spc_length_correct'] = False
+        print("Item: \n",item,"\n\n")
+
 
     # Evaluate accuracy of spc
-    item['spc_accuracy'] = {}
-    spc_intersection = set(spc_name_prediction).intersection(set(spc_name_truth))
-    if len(spc_name_truth) == 0:
-        if len(spc_name_prediction) == 0:
-            item['spc_accuracy']['recall'] = 1
-            item['spc_accuracy']['precision'] = 1
+    try:
+        item['spc_accuracy'] = {}
+        spc_intersection = set(spc_name_prediction).intersection(set(spc_name_truth))
+        if len(spc_name_truth) == 0:
+            if len(spc_name_prediction) == 0:
+                item['spc_accuracy']['recall'] = 1
+                item['spc_accuracy']['precision'] = 1
+            else:
+                item['spc_accuracy']['recall'] = 0
+                item['spc_accuracy']['precision'] = len(spc_intersection)/len(spc_name_prediction)
         else:
-            item['spc_accuracy']['recall'] = 0
-            item['spc_accuracy']['precision'] = len(spc_intersection)/len(spc_name_prediction)
-    else:
-        if len(spc_name_prediction) == 0:
-            item['spc_accuracy']['precision'] = 0
-            item['spc_accuracy']['recall'] = len(spc_intersection)/len(spc_name_truth)
-        else:
-            item['spc_accuracy']['precision'] = len(spc_intersection)/len(spc_name_prediction)
-            item['spc_accuracy']['recall'] = len(spc_intersection)/len(spc_name_truth)
+            if len(spc_name_prediction) == 0:
+                item['spc_accuracy']['precision'] = 0
+                item['spc_accuracy']['recall'] = len(spc_intersection)/len(spc_name_truth)
+            else:
+                item['spc_accuracy']['precision'] = len(spc_intersection)/len(spc_name_prediction)
+                item['spc_accuracy']['recall'] = len(spc_intersection)/len(spc_name_truth)
+    except e:
+        print("FAILED: Checking SPC accuracy check")
+        print("Exception: ",e)
+        item['spc_accuracy'] = {}
+        print("Item: \n",item,"\n\n")
 
 
     # check for variable assignment and mapping. 
-    if is_isomorphic(item['prediction'],item['truth']):
-        item['is_isomorphic'] = True
-    else:
-        item['is_isomorphic'] = False
+    try:
+        if is_isomorphic(item['prediction'],item['truth']):
+            item['is_isomorphic'] = True
+        else:
+            item['is_isomorphic'] = False
 
-    if is_matched(item['prediction'], item['truth']):
-        item['is_matched'] = True
-    else:
+        if is_matched(item['prediction'], item['truth']):
+            item['is_matched'] = True
+        else:
+            item['is_matched'] = False
+    except e:
+        print("FAILED: Checking variable assignment")
+        print("Exception: ",e)
+        item['is_isomorphic'] = False
         item['is_matched'] = False
+        print("Item: \n",item,"\n\n")
+
 
     return item
 
@@ -274,15 +308,24 @@ def fix_json(json_str):
     return output
 
 def is_same_pred_name(predicted_pred, truth_pred):
-    if predicted_pred.split("(")[0] == truth_pred.split("(")[0]:
-        return True
-    return False
+    try:
+        if predicted_pred.split("(")[0] == truth_pred.split("(")[0]:
+            return True
+        return False
+    except:
+        return False
 
 def pred_name(pred):
-    return pred.split("(")[0].lower()
+    try:
+        return pred.split("(")[0].lower()
+    except:
+        return ""
 
 def pred_args(pred):
-    return pred.split("(")[1].split(")")[0].split(",")
+    try:
+        return pred.split("(")[1].split(")")[0].split(",")
+    except:
+        return []
 
     
 if __name__ == "__main__":
