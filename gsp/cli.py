@@ -88,6 +88,23 @@ def stylize(ctx, **kwargs):
     pipelines.stylize(ctx.obj)
 
 
+
+@click.command()
+@click.option('--utterance', '-u', default="", help="Provide utterance")
+@click.option('--model', '-m', default="gpt-4", help="Provide LLM model name")
+@click.option('--num-per-style', '-r', default=5, help="Provide the number of style variations generated for each style")
+@add_options(shared_options)
+@click.pass_context
+def stylize_one(ctx, **kwargs):
+    ctx.obj.update(kwargs)
+    click.secho("\nRunning Stylizing Pipeline on one utterance\n", bold=True, fg='green')
+    out = pipelines.stylize_one(ctx.obj)
+    print("Utterances: \n",out)
+
+
+
+
+
 @click.command()
 @click.option('--input', '-i', default="", help="Provide input json file path")
 @click.option('--num-data', '-n', default=5, help="Provide the number of data items to be pulled from input")
@@ -143,12 +160,13 @@ def prepare(ctx, **kwargs):
     preparation.prepare(ctx.obj)
 
 
-cli.add_command(serve)
-cli.add_command(style_augment)
+#cli.add_command(serve)
+#cli.add_command(style_augment)
 cli.add_command(prepare)
 cli.add_command(stylize)
-cli.add_command(augment)
-cli.add_command(merge)
+cli.add_command(stylize_one)
+#cli.add_command(augment)
+#cli.add_command(merge)
 
 def main():
     cli(obj={})

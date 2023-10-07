@@ -9,7 +9,7 @@ from langchain.chat_models import ChatOpenAI,ChatAnthropic
 from langchain.chains import LLMChain
 import itertools
 import pandas as pd
-
+from tqdm import tqdm
 
 def prepare(ctx):
     """
@@ -215,6 +215,26 @@ def text_augment(stream, ctx):
                 obj['augmentation_info']= {}   
                 yield obj
         counter += 1
+
+
+def stylize_one(ctx):
+    llm = ChatOpenAI(model_name=ctx['model'])
+    styles = {"none":  NoStyleAugmenter,
+                "directness": DirectnessStyleAugmenter,
+                "formality": FormalityStyleAugmenter,
+                "disfluency": DisfluencyStyleAugmenter,
+                "familiarity": FamiliarityStyleAugmenter,
+                "word_choice": WordChoiceStyleAugmenter,
+                "asr": ASRStyleAugmenter,
+                "correction": CorrectionStyleAugmenter}
+    utterances = []
+    for name,style in tqdm(styles.items(), desc="Styles"):
+        stylizer = style(llm)
+        styled_utterances = stylizer.run(ctx['utterance'], ctx['num_per_style'])
+        utterances.append(styled_utterances)
+    return utterances
+
+               
 
 
 def stylize_utterance(stream, ctx):

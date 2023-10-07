@@ -115,7 +115,7 @@ def evaluate(predicted, truth):
     if isinstance(truth,str):
         try:
             item['truth'] = ast.literal_eval(truth)
-        except e:
+        except:
             print("Unable to parse the truth, which is weird.")
             return item
 
@@ -139,7 +139,7 @@ def evaluate(predicted, truth):
                 predicted_json = ast.literal_eval(new_json_str)
                 item['prediction'] = predicted_json
                 print("Successfully fixed the json.")
-            except e:
+            except:
                 print("Unable to generate a valid dictionary.")
                 return item
     else:
@@ -153,9 +153,8 @@ def evaluate(predicted, truth):
             item['intent_correct'] = True
         else:
             item['intent_correct'] = False
-    except e:
+    except:
         print("FAILED: Checking intent.")
-        print("Exception: ",e)
         item['intent_correct'] = False
         print("Item: \n",item,"\n\n")
 
@@ -165,9 +164,8 @@ def evaluate(predicted, truth):
             item['cpc_name_correct'] = True
         else:
             item['cpc_name_correct'] = False
-    except e:
+    except:
         print("FAILED: Checking CPC name")
-        print("Exception: ",e)
         item['cpc_name_correct'] = False
         print("Item: \n",item,"\n\n")
 
@@ -181,9 +179,8 @@ def evaluate(predicted, truth):
             item['spc_length_correct'] = True
         else:
             item['spc_length_correct'] = False
-    except e:
+    except:
         print("FAILED: Checking SPC counting")
-        print("Exception: ",e)
         item['spc_length_correct'] = False
         print("Item: \n",item,"\n\n")
 
@@ -206,9 +203,8 @@ def evaluate(predicted, truth):
             else:
                 item['spc_accuracy']['precision'] = len(spc_intersection)/len(spc_name_prediction)
                 item['spc_accuracy']['recall'] = len(spc_intersection)/len(spc_name_truth)
-    except e:
+    except:
         print("FAILED: Checking SPC accuracy check")
-        print("Exception: ",e)
         item['spc_accuracy'] = {}
         print("Item: \n",item,"\n\n")
 
@@ -224,9 +220,8 @@ def evaluate(predicted, truth):
             item['is_matched'] = True
         else:
             item['is_matched'] = False
-    except e:
+    except:
         print("FAILED: Checking variable assignment")
-        print("Exception: ",e)
         item['is_isomorphic'] = False
         item['is_matched'] = False
         print("Item: \n",item,"\n\n")
