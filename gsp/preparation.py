@@ -88,7 +88,7 @@ def prepare(ctx):
                                                             properties=item['properties'],
                                                             output=item['base_utterance'])
 
-                item['input'] = item['utterance'] + "\n\nAvailable actions:\n" + str(item['actions']) + "\n\nAvailable detectors:\n" + str(item['properties']) 
+                item['input'] = str(item['utterance']) + "\n\nAvailable actions:\n" + str(item['actions']) + "\n\nAvailable detectors:\n" + str(item['properties']) 
                 item['output'] = item['base_utterance']
                 item['instruction'] = instruction_simple_with_context + "\n\n" + example_simple_with_context.format(actions=item['actions'],
                                                                                                     properties=item['properties'])
@@ -114,7 +114,7 @@ def prepare(ctx):
                                                             properties=item['properties'],
                                                             output=item['json_semantics'])
 
-                item['input'] = item['utterance'] + "\n\nAvailable actions:\n" + str(item['actions']) + "\n\nAvailable detectors:\n" + str(item['properties']) 
+                item['input'] = str(item['utterance']) + "\n\nAvailable actions:\n" + str(item['actions']) + "\n\nAvailable detectors:\n" + str(item['properties']) 
                 item['output'] = item['json_semantics']
                 item['instruction'] = instruction_with_context + "\n\n" + example_with_context.format(actions=item['actions'],
                                                                                                     properties=item['properties'])

@@ -32,11 +32,15 @@ TRANSLATORS_CONTEXT = [("vsarathy/translator-simple_english-30k-context-llama2-7
                ("vsarathy/translator-simple_english-30k-context-llama2-3b", "openlm-research/open_llama_3b_v2"),
                ("vsarathy/translator-simple_english-30k-context-falcon-7b", "tiiuae/falcon-7b")]
 
-PARSING_DATA = "vsarathy/nl-robotics-semantic-parsing-info_structure-2k-no-context-TEST"
-PARSING_CONTEXT_DATA = "vsarathy/nl-robotics-semantic-parsing-info_structure-2k-context-TEST"
-TRANSLATION_DATA = "vsarathy/nl-robotics-translation-simple_english-2k-no-context-TEST"
-TRANSLATION_CONTEXT_DATA = "vsarathy/nl-robotics-translation-simple_english-2k-context-TEST"
+#PARSING_DATA = "vsarathy/nl-robotics-semantic-parsing-info_structure-2k-no-context-TEST"
+#PARSING_CONTEXT_DATA = "vsarathy/nl-robotics-semantic-parsing-info_structure-2k-context-TEST"
+#TRANSLATION_DATA = "vsarathy/nl-robotics-translation-simple_english-2k-no-context-TEST"
+#TRANSLATION_CONTEXT_DATA = "vsarathy/nl-robotics-translation-simple_english-2k-context-TEST"
 
+PARSING_DATA = "vsarathy/nl-robotics-semantic-parsing-info_structure-2k-novelty-no-context-TEST"
+PARSING_CONTEXT_DATA = "vsarathy/nl-robotics-semantic-parsing-info_structure-2k-novelty-context-TEST"
+TRANSLATION_DATA = "vsarathy/nl-robotics-translation-simple_english-2k-novelty-no-context-TEST"
+TRANSLATION_CONTEXT_DATA = "vsarathy/nl-robotics-translation-simple_english-2k-novelty-context-TEST"
 
 def main(args):
     # Load dataset
